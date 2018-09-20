@@ -3,7 +3,7 @@ FROM centos:centos7.4.1708
 MAINTAINER FIWARE Orion Context Broker Team. Telefónica I+D
 
 ENV ORION_USER orion
-ENV GIT_REV_ORION master
+ENV GIT_REV_ORION bugfixing/3162_fix_but_potential_leak
 ENV CLEAN_DEV_TOOLS 1
 
 WORKDIR /opt
