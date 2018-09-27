@@ -37,7 +37,7 @@
 */
 TEST(ContextRegistrationAttribute, render)
 {
-  ContextRegistrationAttribute  cra("name", "type", "false");
+  ContextRegistrationAttribute  cra("name", "type");
   std::string                   out;
   const char*                   outfile1 = "ngsi.contextRegistrationAttribute.render.middle.json";
 

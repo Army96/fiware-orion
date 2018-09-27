@@ -38,8 +38,8 @@
 TEST(ContextRegistrationAttributeVector, render)
 {
   ContextRegistrationAttributeVector crav;
-  ContextRegistrationAttribute       cra("name", "type", "false");
-  ContextRegistrationAttribute       cra2("name2", "type2", "true");
+  ContextRegistrationAttribute       cra("name", "type");
+  ContextRegistrationAttribute       cra2("name2", "type2");
   std::string                        out;
   const char*                        outfile1 = "ngsi.contextRegistrationAttributeVector.render1.middle.json";
   const char*                        outfile2 = "ngsi.contextRegistrationAttributeVector.render2.middle.json";

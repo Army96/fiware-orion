@@ -132,8 +132,7 @@ TEST(NotifyContextAvailabilityRequest, json_render)
 
 
   // Test 2. contextRegistrationResponseVector with TWO contextRegistrationResponse instances
-  Metadata*                     mdP   = new Metadata("M01", "MType", "123");
-  ContextRegistrationAttribute* craP  = new ContextRegistrationAttribute("CRA1", "CType", "false");
+  ContextRegistrationAttribute* craP  = new ContextRegistrationAttribute("CRA1", "CType");
 
   eidP->fill("E02", "EType", "false");
   crrP = new ContextRegistrationResponse();
@@ -142,7 +141,6 @@ TEST(NotifyContextAvailabilityRequest, json_render)
   crrP->contextRegistration.entityIdVector.push_back(eidP);
   crrP->contextRegistration.entityIdVectorPresent = true;
   crrP->contextRegistration.contextRegistrationAttributeVector.push_back(craP);
-  crrP->contextRegistration.registrationMetadataVector.push_back(mdP);
 
   crrP->contextRegistration.providingApplication.set("http://www.tid.es/NotifyContextAvailabilityRequestTest2");
 

@@ -82,11 +82,8 @@ TEST(DiscoverContextAvailabilityResponse, jsonRender)
   const char*                           filename4  = "ngsi9.discoverContextAvailabilityResponse.jsonRender4.valid.json";
   const char*                           filename5  = "ngsi9.discoverContextAvailabilityResponse.jsonRender5.valid.json";
   const char*                           filename6  = "ngsi9.discoverContextAvailabilityResponse.jsonRender6.valid.json";
-  const char*                           filename7  = "ngsi9.discoverContextAvailabilityResponse.jsonRender7.valid.json";
-  const char*                           filename8  = "ngsi9.discoverContextAvailabilityResponse.jsonRender8.valid.json";
-  const char*                           filename9  = "ngsi9.discoverContextAvailabilityResponse.jsonRender9.valid.json";
+  const char*                           filename7  = "ngsi9.discoverContextAvailabilityResponse.jsonRender7.valid.json";    
   const char*                           filename10 = "ngsi9.discoverContextAvailabilityResponse.jsonRender10.valid.json";
-  const char*                           filename12 = "ngsi9.discoverContextAvailabilityResponse.jsonRender12.valid.json";
   const char*                           filename14 = "ngsi9.discoverContextAvailabilityResponse.jsonRender14.valid.json";
   const char*                           filename16 = "ngsi9.discoverContextAvailabilityResponse.jsonRender16.valid.json";
   const char*                           filename18 = "ngsi9.discoverContextAvailabilityResponse.jsonRender18.valid.json";
@@ -189,7 +186,7 @@ TEST(DiscoverContextAvailabilityResponse, jsonRender)
 
   // 6.  ContextRegistration: one attribute in contextRegistrationAttributeVector
   crrP  = new ContextRegistrationResponse();
-  attrP = new ContextRegistrationAttribute("Attr1", "AType", "false");
+  attrP = new ContextRegistrationAttribute("Attr1", "AType");
 
   crrP->contextRegistration.contextRegistrationAttributeVector.push_back(attrP);
   crrP->contextRegistration.providingApplication.set("http://tid.test.com/unitTest6");
@@ -203,7 +200,7 @@ TEST(DiscoverContextAvailabilityResponse, jsonRender)
 
 
   // 7.  ContextRegistration: two attributes in contextRegistrationAttributeVector
-  attrP = new ContextRegistrationAttribute("Attr2", "AType", "true");
+  attrP = new ContextRegistrationAttribute("Attr2", "AType");
 
   crrP->contextRegistration.contextRegistrationAttributeVector.push_back(attrP);
   crrP->contextRegistration.providingApplication.set("http://tid.test.com/unitTest7");
@@ -219,39 +216,7 @@ TEST(DiscoverContextAvailabilityResponse, jsonRender)
   dcarP->release();  // ... otherwise the 500 remains and "pollutes" next tests
 
 
-  // 8.  ContextRegistration: one metadata in registrationMetadataVector
-  crrP  = new ContextRegistrationResponse();
-  mdP = new Metadata("M1", "string", "test 8");
-
-  crrP->contextRegistration.registrationMetadataVector.push_back(mdP);
-  crrP->contextRegistration.providingApplication.set("http://tid.test.com/unitTest8");
-  dcarP->responseVector.push_back(crrP);
-
-  EXPECT_EQ("OK", testDataFromFile(expectedBuf, sizeof(expectedBuf), filename8)) << "Error getting test data from '" << filename8 << "'";
-  rendered = dcarP->render();
-  EXPECT_STREQ(expectedBuf, rendered.c_str());
-  // No release here - the data stays - to be used in the following test scenario
-
-
-
-  // 9.  ContextRegistration: two metadatas in registrationMetadataVector
-  mdP = new Metadata("M2", "string", "test 9");
-
-  crrP->contextRegistration.registrationMetadataVector.push_back(mdP);
-  crrP->contextRegistration.providingApplication.set("http://tid.test.com/unitTest9");
-
-  EXPECT_EQ("OK", testDataFromFile(expectedBuf, sizeof(expectedBuf), filename9)) << "Error getting test data from '" << filename9 << "'";
-  rendered = dcarP->render();
-  EXPECT_STREQ(expectedBuf, rendered.c_str());
-
-  dcarP->release();
-  EXPECT_EQ("OK", testDataFromFile(expectedBuf, sizeof(expectedBuf), emptyFilename)) << "Error getting test data from '" << emptyFilename << "'";
-  rendered = dcarP->render();
-  EXPECT_STREQ(expectedBuf, rendered.c_str());
-  dcarP->release();  // ... otherwise the 500 remains and "pollutes" next tests
-
-
-  // 10. !entityIdVector !contextRegistrationAttributeVector !registrationMetadataVector +providingApplication
+  // 10. !entityIdVector !contextRegistrationAttributeVector +providingApplication
   crrP = new ContextRegistrationResponse();
 
   crrP->contextRegistration.providingApplication.set("http://tid.test.com/unitTest10");
@@ -269,17 +234,13 @@ TEST(DiscoverContextAvailabilityResponse, jsonRender)
 
 
 
-  // 12. !entityIdVector +contextRegistrationAttributeVector !registrationMetadataVector +providingApplication
+  // 12. !entityIdVector +contextRegistrationAttributeVector +providingApplication
   crrP  = new ContextRegistrationResponse();
-  attrP = new ContextRegistrationAttribute("Attr12", "AType", "true");
+  attrP = new ContextRegistrationAttribute("Attr12", "AType");
 
   crrP->contextRegistration.contextRegistrationAttributeVector.push_back(attrP);
   crrP->contextRegistration.providingApplication.set("http://tid.test.com/unitTest12");
   dcarP->responseVector.push_back(crrP);
-
-  EXPECT_EQ("OK", testDataFromFile(expectedBuf, sizeof(expectedBuf), filename12)) << "Error getting test data from '" << filename12 << "'";
-  rendered = dcarP->render();
-  EXPECT_STREQ(expectedBuf, rendered.c_str());
 
   dcarP->release();
   EXPECT_EQ("OK", testDataFromFile(expectedBuf, sizeof(expectedBuf), emptyFilename)) << "Error getting test data from '" << emptyFilename << "'";
@@ -289,7 +250,7 @@ TEST(DiscoverContextAvailabilityResponse, jsonRender)
 
 
 
-  // 14. +entityIdVector !contextRegistrationAttributeVector !registrationMetadataVector +providingApplication
+  // 14. +entityIdVector !contextRegistrationAttributeVector +providingApplication
   crrP  = new ContextRegistrationResponse();
   eidP  = new EntityId("E14", "EType", "false");
 
@@ -309,10 +270,10 @@ TEST(DiscoverContextAvailabilityResponse, jsonRender)
 
 
 
-  // 16. +entityIdVector +contextRegistrationAttributeVector !registrationMetadataVector +providingApplication
+  // 16. +entityIdVector +contextRegistrationAttributeVector +providingApplication
   crrP  = new ContextRegistrationResponse();
   eidP  = new EntityId("E16", "EType", "false");
-  attrP = new ContextRegistrationAttribute("Attr16", "AType", "true");
+  attrP = new ContextRegistrationAttribute("Attr16", "AType");
 
   crrP->contextRegistration.entityIdVector.push_back(eidP);
   crrP->contextRegistration.contextRegistrationAttributeVector.push_back(attrP);
