@@ -402,7 +402,7 @@ Date: REGEX(.*)
 06. Discover E1-T1, get three hits
 ==================================
 HTTP/1.1 200 OK
-Content-Length: 604
+Content-Length: 547
 Content-Type: application/json
 Fiware-Correlator: REGEX([0-9a-f\-]{36})
 Date: REGEX(.*)
@@ -413,7 +413,6 @@ Date: REGEX(.*)
             "contextRegistration": {
                 "attributes": [
                     {
-                        "isDomain": "false", 
                         "name": "A1", 
                         "type": ""
                     }
@@ -432,7 +431,6 @@ Date: REGEX(.*)
             "contextRegistration": {
                 "attributes": [
                     {
-                        "isDomain": "false", 
                         "name": "A2", 
                         "type": ""
                     }
@@ -451,7 +449,6 @@ Date: REGEX(.*)
             "contextRegistration": {
                 "attributes": [
                     {
-                        "isDomain": "false", 
                         "name": "A4", 
                         "type": ""
                     }
@@ -515,7 +512,7 @@ Date: REGEX(.*)
 10. Discover E1-T1-A3, without service-path, get three hits
 ===========================================================
 HTTP/1.1 200 OK
-Content-Length: 604
+Content-Length: 547
 Content-Type: application/json
 Fiware-Correlator: REGEX([0-9a-f\-]{36})
 Date: REGEX(.*)
@@ -526,7 +523,6 @@ Date: REGEX(.*)
             "contextRegistration": {
                 "attributes": [
                     {
-                        "isDomain": "false", 
                         "name": "A3", 
                         "type": ""
                     }
@@ -545,7 +541,6 @@ Date: REGEX(.*)
             "contextRegistration": {
                 "attributes": [
                     {
-                        "isDomain": "false", 
                         "name": "A3", 
                         "type": ""
                     }
@@ -564,7 +559,6 @@ Date: REGEX(.*)
             "contextRegistration": {
                 "attributes": [
                     {
-                        "isDomain": "false", 
                         "name": "A3", 
                         "type": ""
                     }
@@ -586,7 +580,7 @@ Date: REGEX(.*)
 11. Discover E1-T1-A3, with service-path /#, get three hits
 ===========================================================
 HTTP/1.1 200 OK
-Content-Length: 604
+Content-Length: 547
 Content-Type: application/json
 Fiware-Correlator: REGEX([0-9a-f\-]{36})
 Date: REGEX(.*)
@@ -597,7 +591,6 @@ Date: REGEX(.*)
             "contextRegistration": {
                 "attributes": [
                     {
-                        "isDomain": "false", 
                         "name": "A3", 
                         "type": ""
                     }
@@ -616,7 +609,6 @@ Date: REGEX(.*)
             "contextRegistration": {
                 "attributes": [
                     {
-                        "isDomain": "false", 
                         "name": "A3", 
                         "type": ""
                     }
@@ -635,7 +627,6 @@ Date: REGEX(.*)
             "contextRegistration": {
                 "attributes": [
                     {
-                        "isDomain": "false", 
                         "name": "A3", 
                         "type": ""
                     }
@@ -657,7 +648,7 @@ Date: REGEX(.*)
 12. Discover E1-T1-A3, with service-path /, get one hit
 =======================================================
 HTTP/1.1 200 OK
-Content-Length: 224
+Content-Length: 205
 Content-Type: application/json
 Fiware-Correlator: REGEX([0-9a-f\-]{36})
 Date: REGEX(.*)
@@ -668,7 +659,6 @@ Date: REGEX(.*)
             "contextRegistration": {
                 "attributes": [
                     {
-                        "isDomain": "false", 
                         "name": "A3", 
                         "type": ""
                     }
@@ -690,7 +680,7 @@ Date: REGEX(.*)
 13. Discover E1-T1-A3, with service-path /s1, get one hit
 =========================================================
 HTTP/1.1 200 OK
-Content-Length: 224
+Content-Length: 205
 Content-Type: application/json
 Fiware-Correlator: REGEX([0-9a-f\-]{36})
 Date: REGEX(.*)
@@ -701,7 +691,6 @@ Date: REGEX(.*)
             "contextRegistration": {
                 "attributes": [
                     {
-                        "isDomain": "false", 
                         "name": "A3", 
                         "type": ""
                     }
@@ -723,7 +712,7 @@ Date: REGEX(.*)
 14. Discover E1-T1-A3, with service-path /s2, get one hit
 =========================================================
 HTTP/1.1 200 OK
-Content-Length: 224
+Content-Length: 205
 Content-Type: application/json
 Fiware-Correlator: REGEX([0-9a-f\-]{36})
 Date: REGEX(.*)
@@ -734,7 +723,6 @@ Date: REGEX(.*)
             "contextRegistration": {
                 "attributes": [
                     {
-                        "isDomain": "false", 
                         "name": "A3", 
                         "type": ""
                     }
